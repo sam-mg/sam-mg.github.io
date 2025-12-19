@@ -1,0 +1,51 @@
+<!-- Post Sharing Buttons -->
+<link rel="stylesheet" href="/assets/css/share-buttons.css"/>
+
+<div class="share-buttons my-4">
+    <h5 class="mb-3">Share this post</h5>
+    <div class="d-flex flex-wrap gap-2">
+        {% for platform in site.data.share.platforms %}
+        <a href="{{ platform.link | replace: 'TITLE', page.title | url_encode | replace: 'URL', site.url | append: page.url | url_encode }}" 
+           target="_blank" 
+           class="btn btn-sm btn-outline-primary"
+           title="Share on {{ platform.type }}">
+            <i class="{{ platform.icon }}"></i> {{ platform.type }}
+        </a>
+        {% endfor %}
+        
+        <button onclick="copyToClipboard()" 
+                class="btn btn-sm btn-outline-secondary"
+                title="Copy link">
+            <i class="ti-link"></i> Copy Link
+        </button>
+    </div>
+</div>
+
+<script>
+function getBaseUrl() {
+    return window.location.origin + window.location.pathname;
+}
+
+function copyToClipboard() {
+    const url = getBaseUrl();
+    navigator.clipboard.writeText(url).then(() => {
+        alert('Link copied to clipboard!');
+    }).catch(err => {
+        console.error('Failed to copy:', err);
+    });
+}
+
+// Update share button URLs to remove hash
+document.addEventListener('DOMContentLoaded', function() {
+    const baseUrl = getBaseUrl();
+    const encodedUrl = encodeURIComponent(baseUrl);
+    const title = encodeURIComponent(document.title);
+    
+    // Update all share buttons
+    document.querySelectorAll('.share-buttons a[href*="TITLE"], .share-buttons a[href*="URL"]').forEach(btn => {
+        let href = btn.getAttribute('href');
+        href = href.replace(/TITLE/g, title).replace(/URL/g, encodedUrl);
+        btn.setAttribute('href', href);
+    });
+});
+</script>

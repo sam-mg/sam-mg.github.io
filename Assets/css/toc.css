@@ -1,0 +1,46 @@
+.toc-wrapper {
+    background: #f8f9fa;
+    border-left: 3px solid #007bff;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0.25rem;
+}
+
+.toc-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.toc ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.toc li {
+    margin: 0.5rem 0;
+}
+
+.toc a {
+    text-decoration: none;
+    color: #495057;
+    transition: color 0.2s;
+}
+
+.toc a:hover {
+    color: #007bff;
+}
+
+.toc ul ul {
+    padding-left: 1.5rem;
+    margin-top: 0.25rem;
+}
+
+@media (min-width: 992px) {
+    .toc-wrapper {
+        position: sticky;
+        top: 5rem;
+        max-height: calc(100vh - 6rem);
+        overflow-y: auto;
+    }
+}

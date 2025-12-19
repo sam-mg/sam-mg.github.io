@@ -1,0 +1,27 @@
+- name: lu77U-MobileSec
+  url: https://github.com/sam-mg/lu77U-MobileSec
+  image: Dr01d_H4ckQu35t.gif
+  description: AI-assisted Android static analysis tool. Detects framework (Java/Kotlin, Flutter, React Native), performs framework-specific security analysis, uses AI heuristics for vulnerability detection.
+  status: Active Research Tool
+  tech: Python, AI/ML, Static Analysis
+
+- name: MobileReversing
+  url: https://github.com/sam-mg/MobileReversing
+  image: Dr01d_H4ckQu35t.gif
+  description: Curated roadmap for Android reverse engineering. Structured learning path covering tools, techniques, and methodologies for mobile security researchers and CTF players.
+  status: Active Educational Resource
+  tech: Documentation, Reverse Engineering
+
+- name: Python SHA-256 Implementation
+  url: https://github.com/sam-mg/Python-SHA-256-Implementation
+  image: Python SHA-256 Implementation.png
+  description: From-scratch implementation of SHA-256 hashing algorithm. Educational tool demonstrating cryptographic hash function internals with CLI interface for strings and files.
+  status: Educational Tool
+  tech: Python, Cryptography
+
+- name: HarvestShell
+  url: https://github.com/sam-mg/0xMobile/tree/main/HarvestShell
+  image: Mulyam.png
+  description: Android malware proof-of-concept demonstrating remote access capabilities, data exfiltration, and privilege escalation techniques. Research tool for understanding mobile threat landscape.
+  status: Research PoC
+  tech: Android, Java, Offensive Security

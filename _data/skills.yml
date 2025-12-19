@@ -1,0 +1,46 @@
+- category: Programming Languages
+  skills:
+    - Python
+    - Java
+    - C
+    - JavaScript
+
+- category: Reverse Engineering
+  skills:
+    - JADX
+    - IDA
+    - Ghidra
+    - APKTool
+    - Androguard
+    - Binary Analysis
+
+- category: Dynamic Analysis & Instrumentation
+  skills:
+    - Frida Hooking
+    - Runtime Instrumentation
+    - ADB Automation
+    - Root/Emulator Bypass
+    - API Monitoring
+    - Network Interception
+
+- category: Security Testing Tools
+  skills:
+    - Burp Suite
+    - HTTP Toolkit
+    - Proxies & MITM
+    - Security Assessment
+
+- category: Mobile Security
+  skills:
+    - Android Security
+    - Framework Detection
+    - Vulnerability Research
+    - CTF Development
+
+- category: Development & Automation
+  skills:
+    - Git & GitHub
+    - CLI Development
+    - Python Automation
+    - Bash Scripting
+    - AI Integration

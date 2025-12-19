@@ -1,0 +1,239 @@
+/* DIVA Series Timeline Styles */
+
+/* Mermaid Diagram Scaling */
+.mermaid-scaled {
+  transform: scale(0.85);
+  transform-origin: center top;
+  margin: 2rem auto;
+  max-width: 100%;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.diva-timeline {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 50px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #fff, rgba(255, 255, 255, 0.5));
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  position: relative;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.timeline-marker {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: #667eea;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+  z-index: 2;
+  position: relative;
+  margin-right: 20px;
+}
+
+.timeline-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.timeline-content h3 a {
+  color: #667eea;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.timeline-content h3 a:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+.timeline-content p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Challenge Sections */
+.challenge-section {
+  margin: 60px 0;
+  padding: 40px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 5px solid #667eea;
+}
+
+.challenge-section h2 {
+  color: #667eea;
+  margin-top: 0;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+/* Challenge Navigation Buttons */
+.challenge-navigation {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #e9ecef;
+}
+
+.nav-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white !important;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.nav-button.prev::before {
+  content: '';
+  margin-right: 5px;
+}
+
+.nav-button.next::after {
+  content: '';
+  margin-left: 5px;
+}
+
+.nav-button.top {
+  margin-left: auto;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timeline-container::before {
+    left: 25px;
+  }
+
+  .timeline-marker {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    margin-right: 15px;
+  }
+
+  .timeline-content {
+    padding: 15px;
+  }
+
+  .challenge-section {
+    padding: 20px;
+  }
+
+  .challenge-navigation {
+    flex-direction: column;
+  }
+
+  .nav-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-button.top {
+    margin-left: 0;
+  }
+}
+
+/* Code blocks in challenges */
+.challenge-section pre {
+  background: #282c34;
+  color: #abb2bf;
+  border-radius: 5px;
+  padding: 15px;
+  overflow-x: auto;
+  margin: 15px 0;
+}
+
+.challenge-section code {
+  background: #f4f4f4;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.challenge-section pre code {
+  background: transparent;
+  padding: 0;
+}
+
+/* Image styling in challenges */
+.challenge-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}

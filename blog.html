@@ -1,0 +1,454 @@
+---
+layout: blog
+title: Blog
+permalink: /blog/
+---
+
+<link rel="stylesheet" href="/assets/css/blog.css"/>
+
+<div id="top"></div>
+
+<!-- Fixed Header -->
+<header class="blog-header">
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="logo ml-md-3" href="/">
+                <img class="img-fluid rounded-circle" src="/assets/images/DP.png" style="max-width: 50px;">
+            </a>
+            <a href="#top" class="blog-title-link">
+                <h1 class="blog-title-center mb-0">sam-mg's Blogs</h1>
+            </a>
+            <ul class="nav blog-nav-menu">
+                <li class="item">
+                    <a class="link" href="javascript:void(0)" id="search-toggle"><i class="ti-search"></i></a>
+                </li>
+                {% assign pinned_posts_check = site.posts | where: "pin", true %}
+                {% if pinned_posts_check.size > 0 %}
+                <li class="item">
+                    <a class="link" href="#pinned-section">Pinned</a>
+                </li>
+                {% endif %}
+                <li class="item">
+                    <a class="link" href="#timeline-section">Timeline</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0)" id="blog-nav-toggle" class="hamburger hamburger--elastic">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </a>
+        </div>
+    </nav>
+</header>
+
+<section class="section pt-5" style="margin-top: 80px;">
+    <div class="container">
+        <!-- Search Box -->
+        <div id="search-section" class="search-wrapper mb-5" style="display: none;">
+            <div class="vanish-input-wrapper">
+                <input type="text" 
+                       id="search-input" 
+                       class="vanish-input" 
+                       aria-label="Search">
+                <div class="vanish-input-placeholders" id="placeholders-container"></div>
+                <div class="vanish-input-underline"></div>
+            </div>
+            <div id="search-results" class="search-results mt-3"></div>
+        </div>
+
+        <div id="post-list">
+            {% assign posts = site.posts | where_exp: "post", "post.hidden != true" %}
+            {% assign pinned_posts = posts | where: "pin", true %}
+            
+            {% if posts.size > 0 %}
+                <!-- Pinned Posts -->
+                {% if pinned_posts.size > 0 %}
+                <div id="pinned-section">
+                <h3 class="mb-3"><i class="ti-pin"></i> Pinned Posts</h3>
+                {% for post in pinned_posts %}
+                <article class="card mb-4 shadow-sm border-primary">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="{% if post.image %}col-md-8{% else %}col-12{% endif %}">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <h2 class="card-title">
+                                        <a href="{{ post.url | relative_url }}" class="text-dark text-decoration-none">
+                                            {{ post.title }}
+                                        </a>
+                                    </h2>
+                                    <span class="badge badge-warning"><i class="ti-pin"></i> Pinned</span>
+                                </div>
+                                
+                                <div class="text-muted mb-3">
+                                    <small>
+                                        <i class="ti-calendar"></i> {{ post.date | date: "%B %d, %Y" }}
+                                        | {% include read-time.html content=post.content %}
+                                    </small>
+                                </div>
+
+                                {% if post.description %}
+                                <p class="card-text">{{ post.description }}</p>
+                                {% elsif post.excerpt %}
+                                <p class="card-text">{{ post.excerpt | strip_html | truncatewords: 50 }}</p>
+                                {% endif %}
+
+                                <a href="{{ post.url | relative_url }}" class="btn btn-sm btn-outline-primary">
+                                    Read More <i class="ti-arrow-right"></i>
+                                </a>
+                            </div>
+                            {% if post.image %}
+                            <div class="col-md-4">
+                                <img src="{{ post.image }}" alt="{{ post.title }}" class="img-fluid rounded">
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </article>
+                {% endfor %}
+                
+                <hr class="my-5">
+                </div>
+                {% endif %}
+
+                <!-- Timeline - All Posts -->
+                <div id="timeline-section" class="timeline-wrapper">
+                {% for post in posts %}
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-date">{{ post.date | date: "%B %d, %Y" }}</div>
+                    <div class="timeline-content">
+                        <article class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="{% if post.image %}col-md-8{% else %}col-12{% endif %}">
+                                        <div class="d-flex justify-content-between align-items-start mb-2">
+                                            <h2 class="card-title mb-0">
+                                                <a href="{{ post.url | relative_url }}" class="text-dark text-decoration-none">
+                                                    {{ post.title }}
+                                                </a>
+                                            </h2>
+                                            {% if post.pin %}
+                                            <span class="badge badge-warning ml-2"><i class="ti-pin"></i> Pinned</span>
+                                            {% endif %}
+                                        </div>
+                                        
+                                        <div class="text-muted mb-3">
+                                            <small>
+                                                {% include read-time.html content=post.content %}
+                                            </small>
+                                        </div>
+
+                                        {% if post.description %}
+                                        <p class="card-text">{{ post.description }}</p>
+                                        {% elsif post.excerpt %}
+                                        <p class="card-text">{{ post.excerpt | strip_html | truncatewords: 50 }}</p>
+                                        {% endif %}
+
+                                        <a href="{{ post.url | relative_url }}" class="btn btn-sm btn-outline-primary">
+                                            Read More <i class="ti-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                    {% if post.image %}
+                                    <div class="col-md-4">
+                                        <img src="{{ post.image }}" alt="{{ post.title }}" class="img-fluid rounded">
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+            {% else %}
+                <div class="row justify-content-center align-items-center" style="min-height: 40vh;">
+                    <div class="col-md-6 text-center">
+                        <h2 class="text-muted mb-4">Coming Soon</h2>
+                        <p class="lead">Blog posts are on the way. Stay tuned!</p>
+                        <a href="/" class="btn btn-primary mt-4">← Back to Home</a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- Simple Jekyll Search -->
+<script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    const postList = document.getElementById('post-list');
+    const placeholdersContainer = document.getElementById('placeholders-container');
+    
+    let searchResultsData = [];
+    
+    // Vanish animation function - character by character
+    function vanishAnimation(callback) {
+        const inputValue = searchInput.value;
+        if (!inputValue) {
+            if (callback) callback();
+            return;
+        }
+        
+        // Create overlay for vanishing characters
+        const vanishOverlay = document.createElement('div');
+        vanishOverlay.style.position = 'absolute';
+        vanishOverlay.style.left = '0';
+        vanishOverlay.style.top = '50%';
+        vanishOverlay.style.transform = 'translateY(-50%)';
+        vanishOverlay.style.fontSize = '1.5rem';
+        vanishOverlay.style.fontWeight = '400';
+        vanishOverlay.style.pointerEvents = 'none';
+        vanishOverlay.style.zIndex = '3';
+        vanishOverlay.style.display = 'flex';
+        
+        // Create span for each character
+        const chars = inputValue.split('');
+        chars.forEach((char, index) => {
+            const charSpan = document.createElement('span');
+            charSpan.textContent = char;
+            charSpan.style.display = 'inline-block';
+            charSpan.style.opacity = '1';
+            charSpan.style.transition = 'all 0.3s ease';
+            charSpan.dataset.index = index;
+            vanishOverlay.appendChild(charSpan);
+        });
+        
+        document.querySelector('.vanish-input-wrapper').appendChild(vanishOverlay);
+        searchInput.style.opacity = '0';
+        
+        // Animate each character vanishing
+        let delay = 0;
+        chars.forEach((char, index) => {
+            setTimeout(() => {
+                const charSpan = vanishOverlay.querySelector(`[data-index="${index}"]`);
+                if (charSpan) {
+                    charSpan.style.opacity = '0';
+                    charSpan.style.transform = 'translateY(-20px) scale(0.5)';
+                    charSpan.style.filter = 'blur(10px)';
+                }
+            }, delay);
+            delay += 30; // 30ms between each character
+        });
+        
+        // After all characters vanish, execute callback
+        setTimeout(() => {
+            vanishOverlay.remove();
+            searchInput.style.opacity = '1';
+            if (callback) callback();
+        }, delay + 300);
+    }
+    
+    // Handle Enter key press
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const query = this.value.trim();
+            
+            if (query.length === 0) return;
+            
+            // Get current search results count
+            const resultCards = searchResults.querySelectorAll('.search-result-card');
+            const resultsCount = resultCards.length;
+            
+            if (resultsCount === 1) {
+                // Extract URL from the single result
+                const resultLink = resultCards[0].querySelector('a');
+                const url = resultLink ? resultLink.getAttribute('href') : null;
+                
+                if (url) {
+                    vanishAnimation(() => {
+                        window.open(url, '_blank');
+                        searchSection.style.display = 'none';
+                        searchInput.value = '';
+                        searchResults.innerHTML = '';
+                        postList.style.display = 'block';
+                        clearTimeout(placeholderTimeout);
+                        placeholdersContainer.style.opacity = '1';
+                    });
+                }
+            } else {
+                // Multiple or no results - just close with animation
+                vanishAnimation(() => {
+                    searchSection.style.display = 'none';
+                    searchInput.value = '';
+                    searchResults.innerHTML = '';
+                    postList.style.display = 'block';
+                    clearTimeout(placeholderTimeout);
+                    placeholdersContainer.style.opacity = '1';
+                });
+            }
+        }
+    });
+    
+    // Vanishing input placeholders
+    const placeholders = [
+        "Search for Android reverse engineering...",
+        "Search for CTF writeups...",
+        "Search for mobile security...",
+        "Search for Frida tutorials...",
+        "Search posts..."
+    ];
+    
+    let currentPlaceholderIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let placeholderTimeout;
+    
+    function animatePlaceholder() {
+        if (!searchInput || searchInput.value.length > 0) {
+            placeholdersContainer.textContent = '';
+            return;
+        }
+        
+        const currentPlaceholder = placeholders[currentPlaceholderIndex];
+        
+        if (isDeleting) {
+            charIndex--;
+            placeholdersContainer.textContent = currentPlaceholder.substring(0, charIndex);
+            
+            if (charIndex === 0) {
+                isDeleting = false;
+                currentPlaceholderIndex = (currentPlaceholderIndex + 1) % placeholders.length;
+                placeholderTimeout = setTimeout(animatePlaceholder, 800);
+            } else {
+                placeholderTimeout = setTimeout(animatePlaceholder, 50);
+            }
+        } else {
+            charIndex++;
+            placeholdersContainer.textContent = currentPlaceholder.substring(0, charIndex);
+            
+            if (charIndex === currentPlaceholder.length) {
+                isDeleting = true;
+                placeholderTimeout = setTimeout(animatePlaceholder, 3000);
+            } else {
+                placeholderTimeout = setTimeout(animatePlaceholder, 80);
+            }
+        }
+    }
+    
+    // Start placeholder animation
+    animatePlaceholder();
+    
+    // Hide placeholder when typing
+    searchInput.addEventListener('input', function() {
+        clearTimeout(placeholderTimeout);
+        if (this.value.length > 0) {
+            placeholdersContainer.style.opacity = '0';
+            if (this.value.trim().length > 0) {
+                postList.style.display = 'none';
+            } else {
+                postList.style.display = 'block';
+                searchResults.innerHTML = '';
+            }
+        } else {
+            placeholdersContainer.style.opacity = '1';
+            charIndex = 0;
+            isDeleting = false;
+            animatePlaceholder();
+            postList.style.display = 'block';
+            searchResults.innerHTML = '';
+        }
+    });
+    
+    SimpleJekyllSearch({
+        searchInput: searchInput,
+        resultsContainer: searchResults,
+        json: '/assets/js/data/search.json',
+        searchResultTemplate: `
+            <div class="card mb-3 search-result-card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{url}">{title}</a>
+                    </h5>
+                    <div class="d-flex align-items-center mb-2">
+                        <small class="text-muted">
+                            <i class="ti-calendar"></i> {date}
+                        </small>
+                    </div>
+                    <p class="card-text search-excerpt">{content}</p>
+                    <a href="{url}" class="btn btn-sm btn-outline-primary mt-2">
+                        Read More <i class="ti-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        `,
+        noResultsText: `
+            <div class="text-center py-5">
+                <i class="ti-search" style="font-size: 3rem; color: #ccc;"></i>
+                <p class="text-muted mt-3">No posts found matching your search</p>
+                <small class="text-muted">Try different keywords or browse all posts below</small>
+            </div>
+        `,
+        limit: 20,
+        fuzzy: true
+    });
+    
+    // Search toggle button
+    const searchToggle = document.getElementById('search-toggle');
+    const searchSection = document.getElementById('search-section');
+    
+    if (searchToggle && searchSection) {
+        searchToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (searchSection.style.display === 'none') {
+                searchSection.style.display = 'block';
+                searchInput.focus();
+                animatePlaceholder();
+            } else {
+                searchSection.style.display = 'none';
+                searchInput.value = '';
+                searchResults.innerHTML = '';
+                postList.style.display = 'block';
+                clearTimeout(placeholderTimeout);
+                placeholdersContainer.style.opacity = '1';
+            }
+        });
+    }
+    
+    // Hamburger menu toggle
+    const toggle = document.getElementById('blog-nav-toggle');
+    const menu = document.querySelector('.blog-nav-menu');
+    
+    if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+            menu.classList.toggle('show');
+            toggle.classList.toggle('is-active');
+        });
+        
+        // Close menu when clicking on any link
+        const links = menu.querySelectorAll('.link');
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                menu.classList.remove('show');
+                toggle.classList.remove('is-active');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.remove('show');
+                toggle.classList.remove('is-active');
+            }
+        });
+    }
+    
+    // Scroll detection for affix behavior
+    const blogHeader = document.querySelector('.blog-header');
+    
+    function handleScroll() {
+        if (window.pageYOffset > 20) {
+            blogHeader.classList.add('affix');
+        } else {
+            blogHeader.classList.remove('affix');
+        }
+    }
+    
+    window.addEventListener('scroll', handleScroll);
+    // Check initial state
+    handleScroll();
+});
+</script>

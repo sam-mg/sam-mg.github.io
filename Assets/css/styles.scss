@@ -1,0 +1,189 @@
+---
+---
+@use "main";
+
+/* Blog title in navbar for post pages */
+.blog-title-link {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.blog-title-center {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #695aa6;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.blog-title-link:hover .blog-title-center {
+    color: #8a7ac4;
+}
+
+@media (max-width: 768px) {
+    .blog-title-center {
+        font-size: 1.2rem;
+        max-width: 60%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+/* Blog-specific styles */
+.post-list {
+  margin: 2rem 0;
+}
+
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(0,0,0,.125);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,.1);
+}
+
+.badge {
+  font-weight: 500;
+  padding: 0.25em 0.6em;
+  margin-right: 0.25rem;
+}
+
+.badge-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.badge-info {
+  background-color: #17a2b8;
+  color: white;
+}
+
+/* Syntax highlighting for code blocks */
+.highlighter-rouge {
+  border: 2px solid #695aa6;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  margin: 1.5rem 0;
+  background: transparent;
+}
+
+.highlighter-rouge .highlight {
+  background-color: #f8f9fa !important;
+  border-radius: 0.25rem;
+  overflow-x: auto;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.highlight pre {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  background: transparent !important;
+  border: none !important;
+}
+
+.highlight code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  background: none !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+/* Rouge table layout for line numbers */
+.rouge-table {
+  width: 100%;
+  margin: 0 !important;
+  border-spacing: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.rouge-table tbody,
+.rouge-table tr {
+  border: none !important;
+  background: transparent !important;
+}
+
+.rouge-table td {
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.rouge-gutter {
+  width: 1%;
+  padding: 1rem 0 1rem 1rem !important;
+  text-align: right;
+  user-select: none;
+  vertical-align: top;
+}
+
+.rouge-code {
+  padding: 1rem 1rem 1rem 0.5rem !important;
+}
+
+.rouge-gutter pre {
+  padding: 0 !important;
+  margin: 0 !important;
+  color: #6a737d !important;
+  border-right: 1px solid #dee2e6 !important;
+  padding-right: 0.75rem !important;
+  background: transparent !important;
+}
+
+.rouge-code pre {
+  padding: 0 !important;
+  margin: 0 !important;
+  padding-left: 0.75rem !important;
+  background: transparent !important;
+}
+
+/* Rouge syntax highlighting - GitHub style */
+.highlight .c { color: #6a737d; font-style: italic; }
+.highlight .err { color: #d73a49; }
+.highlight .k { color: #d73a49; font-weight: bold; }
+.highlight .o { color: #d73a49; }
+.highlight .cm { color: #6a737d; font-style: italic; }
+.highlight .cp { color: #d73a49; font-weight: bold; }
+.highlight .c1 { color: #6a737d; font-style: italic; }
+.highlight .kc { color: #005cc5; font-weight: bold; }
+.highlight .kd { color: #d73a49; font-weight: bold; }
+.highlight .kn { color: #d73a49; font-weight: bold; }
+.highlight .kp { color: #d73a49; font-weight: bold; }
+.highlight .kr { color: #d73a49; font-weight: bold; }
+.highlight .kt { color: #d73a49; }
+.highlight .m { color: #005cc5; }
+.highlight .s { color: #032f62; }
+.highlight .na { color: #6f42c1; }
+.highlight .nb { color: #005cc5; }
+.highlight .nc { color: #6f42c1; font-weight: bold; }
+.highlight .no { color: #005cc5; }
+.highlight .nd { color: #6f42c1; }
+.highlight .nf { color: #6f42c1; font-weight: bold; }
+.highlight .nn { color: #6f42c1; }
+.highlight .nt { color: #22863a; }
+.highlight .nv { color: #e36209; }
+.highlight .s2 { color: #032f62; }
+.highlight .mi { color: #005cc5; }
+
+/* Responsive blog layout */
+@media (max-width: 768px) {
+  .post-content {
+    font-size: 1rem;
+  }
+  
+  .highlight {
+    font-size: 0.85rem;
+    padding: 0.75rem;
+  }
+}

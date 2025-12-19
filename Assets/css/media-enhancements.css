@@ -1,0 +1,69 @@
+/* Responsive embeds */
+.embed-responsive {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+
+.embed-responsive::before {
+    display: block;
+    content: "";
+}
+
+.embed-responsive-16by9::before {
+    padding-top: 56.25%;
+}
+
+.embed-responsive-item {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Make content images clickable with lightbox */
+.post-content img {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.post-content img:hover {
+    transform: scale(1.02);
+}
+
+/* Dark mode image support */
+body.dark-mode .post-content img[src*="light-mode"] {
+    display: none;
+}
+
+body:not(.dark-mode) .post-content img[src*="dark-mode"] {
+    display: none;
+}
+
+/* YouTube embed wrapper */
+.youtube-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin: 2rem 0;
+}
+
+.youtube-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Twitter embed */
+.twitter-tweet {
+    margin: 2rem auto !important;
+}

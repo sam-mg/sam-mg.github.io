@@ -1,0 +1,19 @@
+- name: Email
+  url: mailto:sammgharish@gmail.com
+  icon: ti-email
+  
+- name: LinkedIn
+  url: https://www.linkedin.com/in/sam-mg-/
+  icon: ti-linkedin
+  
+- name: GitHub
+  url: https://github.com/sam-mg
+  icon: ti-github
+  
+- name: Instagram
+  url: https://instagram.com/sam.mg__/
+  icon: ti-instagram
+  
+- name: Twitter
+  url: https://x.com/sam_mg_
+  icon: ti-twitter-alt

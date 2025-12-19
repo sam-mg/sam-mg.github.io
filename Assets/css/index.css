@@ -7396,11 +7396,7 @@ p {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background-image: url(../imgs/header.jpg);
+  background-image: url(../images/header.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -7423,6 +7419,11 @@ p {
       -ms-flex-positive: 1;
           flex-grow: 1;
   max-width: 550px;
+  text-align: left;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .header .header-content .header-title .up {
@@ -7447,6 +7448,7 @@ p {
   opacity: .8;
   margin-top: -10px;
   margin-bottom: 20px;
+  text-align: left;
 }
 
 .header .header-content .btn {
@@ -7461,6 +7463,7 @@ p {
   font-weight: bold;
   opacity: .8;
   color: #212529;
+  text-align: left;
 }
 
 .header-mini {

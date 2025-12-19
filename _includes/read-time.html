@@ -1,0 +1,11 @@
+<!-- Read Time Calculation -->
+{% assign words = include.content | strip_html | number_of_words %}
+{% assign wpm = 200 %}
+{% assign read_time = words | divided_by: wpm %}
+{% if read_time < 1 %}
+    {% assign read_time = 1 %}
+{% endif %}
+
+<span class="read-time">
+    <i class="ti-time"></i> {{ read_time }} min read
+</span>

@@ -1,0 +1,131 @@
+title: Sam MG Harish - Mobile Security Researcher
+email: sammgharish@gmail.com
+description: Mobile Security Researcher & Android Reverse Engineer. Team bi0s member, Black Hat MEA Winner, DEFCON Mobile CTF competitor, IEEE Author. Specialized in Android reversing, mobile malware analysis, and CTF challenge development.
+tagline: Mobile Security Researcher & Android Reverse Engineer
+baseurl: ""
+url: "https://sam-mg.tech"
+
+# Language
+lang: en
+
+# Timezone
+timezone: Asia/Kolkata
+
+# Author info
+author:
+  name: Sam MG Harish
+  bio: Mobile Security Researcher & Android Reverse Engineer
+  twitter: sam_mg_
+  github: sam-mg
+  linkedin: sam-mg-
+
+# Social links
+github:
+  username: sam-mg
+
+twitter:
+  username: sam_mg_
+
+social:
+  name: Sam MG Harish
+  email: sammgharish@gmail.com
+  links:
+    - https://twitter.com/sam_mg_
+    - https://github.com/sam-mg
+    - https://www.linkedin.com/in/sam-mg-
+
+# Avatar
+avatar: "/assets/images/DP.png"
+
+# Table of Contents
+toc: true
+
+# Build settings
+markdown: kramdown
+permalink: /blog/:title/
+incremental: true
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# Pagination
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+# Kramdown settings
+kramdown:
+  footnote_backlink: "&#8617;&#xfe0e;"
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+# Collections
+collections:
+  posts:
+    output: true
+  tabs:
+    output: true
+    sort_by: order
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: false
+      toc: true
+      permalink: /blog/:title/
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+# Include files
+include:
+  - blog.html
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - Old Website
+  - .git
+  - .gitignore
+  - README.md
+  - jekyll-theme-chirpy-master
+  - "*.gem"
+  - "*.gemspec"
+  - docs
+  - tools
+  - purgecss.js
+  - "*.config.js"
+  - "package*.json"
+
+# SASS
+sass:
+  style: compressed
+
+# HTML compression
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]

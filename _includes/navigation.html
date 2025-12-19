@@ -1,0 +1,28 @@
+<nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+    <div class="container">
+        <a class="logo ml-md-3" href="/"><img class="img-fluid rounded-circle" src="https://avatars.githubusercontent.com/u/147686318?v=4" style="max-width: 50px;"></a>
+        {% if page.layout == 'post' %}
+        <a href="/blog/" class="blog-title-link">
+            <h1 class="blog-title-center mb-0">sam-mg's Blogs</h1>
+        </a>
+        {% endif %}
+        <ul class="nav">
+            {% for item in site.data.navigation %}
+            <li class="item{% if item.name == 'Blogs' %} ml-md-3{% endif %}">
+                {% if item.hash %}
+                <a class="link{% if item.name == 'Blogs' %} btn btn-primary{% endif %}" href="{{ item.link }}#{{ item.hash }}">{{ item.name }}</a>
+                {% else %}
+                <a class="link{% if item.name == 'Blogs' %} btn btn-primary{% endif %}" href="{{ item.link }}">{{ item.name }}</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        {% unless page.layout == 'post' %}
+        <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+            <div class="hamburger-box">
+                <div class="hamburger-inner"></div>
+            </div>
+        </a>
+        {% endunless %}
+    </div>
+</nav>

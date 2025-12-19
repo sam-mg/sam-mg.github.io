@@ -1,0 +1,14 @@
+- role: Mobile Security Researcher
+  organization: Team bi0s
+  period: February 2024 - Present
+  responsibilities:
+    - Reverse-engineered 40+ Android applications
+    - Solved 100+ CTF challenges (mobile, reversing, exploitation)
+    - Developed 10+ mobile & reversing CTF challenges
+
+- role: Cybersecurity Intern
+  organization: NullClass
+  period: March 2025 - September 2025
+  responsibilities:
+    - Built Android malware PoC (HarvestShell)
+    - Frida-based instrumentation & bypass techniques

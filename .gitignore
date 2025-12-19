@@ -1,1 +1,26 @@
+# macOS
 .DS_Store
+
+# Ruby/Bundler
+.bundle
+vendor/
+Gemfile.lock
+*.gem
+
+# Jekyll
+.jekyll-cache/
+.jekyll-metadata
+_site/
+.sass-cache/
+
+# IDE
+.idea/
+.vscode/
+
+# Node (if ever used)
+node_modules/
+package-lock.json
+
+# Build artifacts
+_sass/dist/
+assets/js/dist/

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- SEO -->
+    {% seo %}
+    
+    <title>{{ page.title }} - Sam MG Harish</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/DP.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/DP.png">
+    <link rel="apple-touch-icon" href="/assets/images/DP.png">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{{ site.description }}">
+    <meta name="author" content="{{ site.author.name }}">
+    <meta name="keywords" content="Mobile Security, Android Reverse Engineering, CTF, Malware Analysis, Team bi0s, Cybersecurity Research">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:title" content="{{ page.title }} - Sam MG Harish">
+    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:image" content="{{ site.url }}/assets/images/header.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="twitter:title" content="{{ page.title }} - Sam MG Harish">
+    <meta property="twitter:description" content="{{ site.description }}">
+    <meta property="twitter:image" content="{{ site.url }}/assets/images/header.jpg">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#007bff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Sam MG Blog">
+    
+    <link rel="stylesheet" href="/assets/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+  <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    {{ content }}
+    {% include footer.html %}
+    
+    <script src="/assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="/assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+    <script src="/assets/vendors/bootstrap/bootstrap.affix.js"></script>
+    <script src="/assets/js/index.js"></script>
+    
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('Service Worker registered'))
+            .catch(err => console.log('Service Worker registration failed:', err));
+        });
+      }
+    </script>
+  </body>
+</html>

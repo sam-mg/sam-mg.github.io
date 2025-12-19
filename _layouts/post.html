@@ -1,0 +1,119 @@
+---
+layout: default
+---
+<article class="section pt-5" style="margin-top: 40px;">
+    <div class="container">
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-lg-8">
+                <!-- Post Header -->
+                <header class="mb-5">
+                    <h1 class="display-4 mb-3">{{ page.title }}</h1>
+                    
+                    {% if page.description %}
+                    <p class="lead text-muted">{{ page.description }}</p>
+                    {% endif %}
+                    
+                    <div class="text-muted mb-4">
+                        <small>
+                            <i class="ti-calendar"></i> {{ page.date | date: "%B %d, %Y" }}
+                            {% if page.last_modified_at %}
+                                | <i class="ti-reload"></i> Updated: {{ page.last_modified_at | date: "%B %d, %Y" }}
+                            {% endif %}
+                            {% if page.author %}
+                                | <i class="ti-user"></i> {{ page.author }}
+                            {% endif %}
+                            | {% include read-time.html content=content %}
+                        </small>
+                    </div>
+
+                    {% if page.image %}
+                    <img src="{{ page.image }}" alt="{{ page.title }}" class="img-fluid rounded mb-4">
+                    {% endif %}
+                </header>
+
+                <!-- Post Content -->
+                <div class="content post-content">
+                    {{ content }}
+                </div>
+
+                <!-- Share Buttons -->
+                {% include share-buttons.html %}
+
+                <!-- Post Footer -->
+                <hr class="my-5">
+                
+                <!-- Navigation -->
+                {% unless page.hidden %}
+                    {% assign visible_posts = site.posts | where_exp: "post", "post.hidden != true" %}
+                    {% assign prev_post = nil %}
+                    {% assign next_post = nil %}
+                    {% assign current_index = nil %}
+                    
+                    {% for post in visible_posts %}
+                        {% if post.url == page.url %}
+                            {% assign current_index = forloop.index0 %}
+                            {% break %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% if current_index %}
+                        {% assign prev_index = current_index | plus: 1 %}
+                        {% assign next_index = current_index | minus: 1 %}
+                        
+                        {% if next_index >= 0 %}
+                            {% assign next_post = visible_posts[next_index] %}
+                        {% endif %}
+                        
+                        {% if prev_index < visible_posts.size %}
+                            {% assign prev_post = visible_posts[prev_index] %}
+                        {% endif %}
+                    {% endif %}
+                    
+                    <div class="row">
+                        {% if prev_post %}
+                        <div class="col-md-6 text-left mb-3">
+                            <small class="text-muted">Previous Post</small><br>
+                            <a href="{{ prev_post.url }}" class="text-decoration-none">
+                                ← {{ prev_post.title }}
+                            </a>
+                        </div>
+                        {% endif %}
+                        
+                        {% if next_post %}
+                        <div class="col-md-6 text-right mb-3">
+                            <small class="text-muted">Next Post</small><br>
+                            <a href="{{ next_post.url }}" class="text-decoration-none">
+                                {{ next_post.title }} →
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                {% endunless %}
+
+                <div class="text-center mt-4">
+                    <a href="/blog/" class="btn btn-primary">← Back to Blog</a>
+                </div>
+            </div>
+            
+            <!-- Sidebar with TOC -->
+            <div class="col-lg-4">
+                {% include toc.html %}
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- Load Mermaid for diagrams -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+</script>
+
+<!-- Load MathJax for mathematical expressions -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!-- Media enhancements (lightbox, embeds) -->
+{% include media-enhancements.html %}
+
+<link rel="stylesheet" href="{{ '/assets/css/post.css' | relative_url }}">

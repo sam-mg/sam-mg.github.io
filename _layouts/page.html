@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- SEO -->
+    {% seo %}
+    
+    <title>{{ page.title }} - Sam MG Harish</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/DP.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/DP.png">
+    <link rel="apple-touch-icon" href="/assets/images/DP.png">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{{ site.description }}">
+    <meta name="author" content="{{ site.author.name }}">
+    <meta name="keywords" content="Mobile Security, Android Reverse Engineering, CTF, Malware Analysis, Team bi0s, Cybersecurity Research">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:title" content="{{ page.title }} - Sam MG Harish">
+    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:image" content="{{ site.url }}/assets/images/header.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="twitter:title" content="{{ page.title }} - Sam MG Harish">
+    <meta property="twitter:description" content="{{ site.description }}">
+    <meta property="twitter:image" content="{{ site.url }}/assets/images/header.jpg">
+    
+    <link rel="stylesheet" href="/assets/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+  <body>
+    {% include navigation.html %}
+    
+    <main style="min-height: 70vh; padding-top: 80px;">
+      {{ content }}
+    </main>
+    
+    {% include footer.html %}
+    
+    <script src="/assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="/assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+    <script src="/assets/js/index.js"></script>
+  </body>
+</html>

@@ -1,203 +1,212 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: Home
+---
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>sam-mg's Portfolio Website</title>
-        <link rel="stylesheet" href="Assets/vendors/themify-icons/css/themify-icons.css">
-        <link rel="stylesheet" href="Assets/css/index.css">
-    </head>
+<header id="home" class="header">
+    <div class="overlay"></div>
+    <div class="header-content container">
+        <h1 class="header-title">
+            <span class="up">Hi!</span>
+            <span class="down">I am <span id="encrypted-name" data-text="Sam MG Harish">Sam MG Harish</span></span>
+        </h1>
+        <p class="header-subtitle"><strong>Mobile Security Researcher & Android Reverse Engineer<br><a href="https://bi0s.in/" target="_blank">@Team bi0s</a></strong></p>
+    </div>
+</header>
 
-    <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-        <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
-            <div class="container">
-                <a class="logo ml-md-3" href="#"><img class="img-fluid rounded-circle" src="https://avatars.githubusercontent.com/u/147686318?v=4" style="max-width: 50px;"></a>
-                <ul class="nav">
-                    <li class="item">
-                        <a class="link" href="#home">Home</a>
-                    </li>
-                    <li class="item">
-                        <a class="link" href="#about">About</a>
-                    </li>
-                    <li class="item">
-                        <a class="link" href="#works">Works</a>
-                    </li>
-                    <li class="item">
-                        <a class="link" href="#projects">Projects</a>
-                    </li>
-                    <li class="item ml-md-3">
-                        <a class="btn btn-primary" href="blogs.html" target="_blank">Blogs</a>
-                    </li>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const encryptedElement = document.getElementById('encrypted-name');
+    const originalText = encryptedElement.getAttribute('data-text');
+    const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+    
+    let revealedChars = 0;
+    let animationFrame = 0;
+    const flipSpeed = 3; // Lower = faster flipping
+    const revealSpeed = 80; // Milliseconds between revealing each character
+    
+    function getRandomChar() {
+        return charset[Math.floor(Math.random() * charset.length)];
+    }
+    
+    function scrambleText() {
+        let scrambled = '';
+        for (let i = 0; i < originalText.length; i++) {
+            if (i < revealedChars) {
+                // Character is revealed
+                scrambled += originalText[i];
+            } else if (originalText[i] === ' ') {
+                // Keep spaces
+                scrambled += ' ';
+            } else {
+                // Scramble unrevealed characters
+                scrambled += getRandomChar();
+            }
+        }
+        return scrambled;
+    }
+    
+    function animate() {
+        animationFrame++;
+        
+        if (animationFrame % flipSpeed === 0) {
+            encryptedElement.textContent = scrambleText();
+        }
+        
+        if (revealedChars < originalText.length) {
+            requestAnimationFrame(animate);
+        } else {
+            encryptedElement.textContent = originalText;
+        }
+    }
+    
+    // Start animation after a short delay
+    setTimeout(() => {
+        animate();
+        
+        // Reveal characters progressively
+        const revealInterval = setInterval(() => {
+            revealedChars++;
+            if (revealedChars > originalText.length) {
+                clearInterval(revealInterval);
+            }
+        }, revealSpeed);
+    }, 500);
+});
+</script>
+
+<section class="section pt-0" id="about">
+    <div class="container text-center">
+        <div class="about">
+            <div class="about-img-holder">
+                <img src="/assets/images/home-left.png" class="about-img">
+            </div>
+            <div class="about-caption">
+                <p class="section-subtitle">Who Am I?</p>
+                <h2 class="section-title mb-4">About</h2>
+                
+                <h5 class="mb-3">Mobile Security Researcher</h5>
+                <p class="mb-4">
+                    B.Tech CSE (Cyber Security) student at Amrita Vishwa Vidyapeetham and member of Team bi0s. 
+                    My work focuses on Android reverse engineering and exploitation research.
+                </p>
+                
+                <h5 class="mb-3">What I Do</h5>
+                <p class="mb-4">
+                    I reverse-engineer Android applications, develop CTF challenges, 
+                    and research mobile security vulnerabilities. My expertise spans static and dynamic analysis, 
+                    framework detection, and offensive security techniques.
+                </p>
+                
+                <h5 class="mb-3">Focus Areas</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2">→ Android Reverse Engineering & Exploitation</li>
+                    <li class="mb-2">→ CTF Challenge Development & Competition</li>
+                    <li class="mb-2">→ Security Research & Tool Development</li>
                 </ul>
-                <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
-                    <div class="hamburger-box">
-                        <div class="hamburger-inner"></div>
-                    </div>
+                
+                <a href="/assets/cv/Sam MG Harish (Resume).pdf" download="Sam MG Harish's Resume.pdf">
+                    <button class="btn-rounded btn btn-outline-primary mt-4">Download CV</button>
                 </a>
             </div>
-        </nav>
-
-        <header id="home" class="header">
-            <div class="overlay"></div>
-            <div class="header-content container">
-                <h1 class="header-title">
-                    <span class="up">Hi!</span>
-                    <span class="down">I am Sam MG Harish</span>
-                </h1>
-                <p class="header-subtitle"><strong>Mobile Security Researcher<br><a href="https://bi0s.in" target="_blank">@Team bi0s</a></strong></p>
-            </div>
-        </header>
-
-        <section class="section pt-0" id="about">
-            <div class="container text-center">
-                <div class="about">
-                    <div class="about-img-holder">
-                        <img src="Assets/imgs/home-left.png" class="about-img">
-                    </div>
-                    <div class="about-caption">
-                        <p class="section-subtitle">Who Am I ?</p>
-                        <h2 class="section-title mb-3">About Me</h2>
-                        <p>Student with skills in Android reversing and working in both team-based and independent projects. Software Developer equipped with secure coding, debugging and project management abilities. Accomplishes project goals consistently with elegant, scalable code.</p>
-                        <a href="Assets/cv/Sam MG Harish (Resume).pdf" download="Sam MG Harish's Resume.pdf">
-                            <button class="btn-rounded btn btn-outline-primary mt-4">Download CV</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="works">
-            <div class="container text-center">
-                <p class="section-subtitle">What I Do ?</p>
-                <h6 class="section-title mb-6">My Works</h6>
-                <div class="row justify-content-center">
-                    <div class="col-md-3 col-lg-3">
-                        <div class="service-card">
-                            <div class="body">
-                                <img src="Assets/imgs/responsive.svg" class="icon">
-                                <h6 class="title">Android Application Development</h6>
-                                <p class="subtitle">Create robust mobile applications using Java and XML.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="service-card">
-                            <div class="body">
-                                <img src="Assets/imgs/toolbox.svg" class="icon">
-                                <h6 class="title">Mobile Application Reversing</h6>
-                                <p class="subtitle">Reverse engineering mobile apps and identify threats and report them.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="projects">
-            <div class="container text-center">
-                <p class="section-subtitle">What I Did ?</p>
-                <h6 class="section-title mb-6">My Projects</h6>
-                <div class="row">
-                    <div class="col-md-4">
-                        <a href="https://github.com/sam-mg/Dr01d_H4ckQu35t" class="portfolio-card" target="_blank">
-                            <img class="portfolio-card-img img-responsive rounded" src="Assets/imgs/Dr01d_H4ckQu35t.gif">
-                            <span class="portfolio-card-overlay">
-                                <span class="portfolio-card-caption">
-                                    <h4>Dr01d_H4ckQu35t</h5>
-                                    <p class="font-weight-normal">This repo can be used as a Road Map for getting into Android Reversing.</p>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="https://github.com/sam-mg/Cryptic-CodeCruncher-s-Cache" class="portfolio-card" target="_blank">
-                            <img src="Assets/imgs/Cryptic CodeCruncher's Cache.gif" class="portfolio-card-img img-responsive rounded"> 
-                            <span class="portfolio-card-overlay">
-                                <span class="portfolio-card-caption">
-                                    <h4>Cryptic<br>CodeCruncher's<br>Cache</h5>
-                                    <p class="font-weight-normal">This repo contains CTF challenges that I've played and their write-ups.</p>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="https://github.com/sam-mg/Xandronyx.ML" class="portfolio-card" target="_blank">
-                            <img class="portfolio-card-img img-responsive rounded" src="Assets/imgs/Xandronyx.ML.jpg">
-                            <span class="portfolio-card-overlay">
-                                <span class="portfolio-card-caption">
-                                    <h4>Xandronyx.ML</h5>
-                                    <p class="font-weight-normal">Xandronyx.ML is a comprehensive toolkit for Android malware detection. It uses multiple machine learning models to classify APK files using static analysis and includes a SHA-256-based malware hash checker with API support.</p>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="https://github.com/sam-mg/Python-SHA-256-Implementation" class="portfolio-card" target="_blank">
-                            <img class="portfolio-card-img img-responsive rounded" src="Assets/imgs/Python SHA-256 Implementation.png">
-                            <span class="portfolio-card-overlay">
-                                <span class="portfolio-card-caption">
-                                    <h4>Python SHA-256<br>Implementation</h5>
-                                    <p class="font-weight-normal">A Python package that implements the SHA-256 hashing algorithm from scratch, providing a command-line tool for hashing strings and files.</p>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="https://github.com/sam-mg/JD-S4nd_B0x/tree/main/Mulyam" class="portfolio-card" target="_blank">
-                            <img class="portfolio-card-img img-responsive rounded" src="Assets/imgs/Mulyam.png">
-                            <span class="portfolio-card-overlay">
-                                <span class="portfolio-card-caption">
-                                    <h4>Mulyam</h5>
-                                    <p class="font-weight-normal">Developed ”Mulyam,” an Android app using Java and native C++ for secure API key handling, enabling real-time stock data retrieval, currency conversion, and error handling with a modern Material UI.</p>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="https://github.com/sam-mg/JD-S4nd_B0x/tree/main/Padmashali" class="portfolio-card" target="_blank">
-                            <img class="portfolio-card-img img-responsive rounded" src="Assets/imgs/Padmashali.png">
-                            <span class="portfolio-card-overlay">
-                                <span class="portfolio-card-caption">
-                                    <h4>Padmashali</h5>
-                                    <p class="font-weight-normal">Developed ”Padmashali,” an Android app in Java to visualize the evolution of weaving technology, featuring interactive timelines, quizzes, and a modern Material UI for educational engagement.</p>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="container">
-            <footer class="footer">
-                <p class="mb-0">Copyright
-                    <script>document.write(new Date().getFullYear())</script> &copy; <a href="http://github.com/sam-mg/">Sam MG Harish</a>
-                </p>
-                <div class="social-links text-right m-auto ml-sm-auto">
-                    <a href="mailto:sammgharish@gmail.com" class="link">
-                        <i class="ti-email"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/sam-mg-/" class="link" target="_blank">
-                        <i class="ti-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/sam-mg" class="link" target="_blank">
-                        <i class="ti-github"></i>
-                    </a>
-                    <a href="https://instagram.com/sam.mg__/" class="link" target="_blank">
-                        <i class="ti-instagram"></i>
-                    </a>
-                    <a href="https://x.com/sam_mg_" class="link" target="_blank">
-                        <i class="ti-twitter-alt"></i>
-                    </a>
-                </div>
-            </footer>
         </div>
+    </div>
+</section>
 
-        <script src="Assets/vendors/jquery/jquery-3.4.1.js"></script>
-        <script src="Assets/vendors/bootstrap/bootstrap.bundle.js"></script>
-        <script src="Assets/vendors/bootstrap/bootstrap.affix.js"></script>
-        <script src="Assets/js/index.js"></script>
+<section class="section bg-light" id="experience">
+    <div class="container">
+        <p class="section-subtitle text-center">Professional Journey</p>
+        <h2 class="section-title text-center mb-5">Experience</h2>
+        
+        <div class="row">
+            {% for exp in site.data.experience %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ exp.role }}</h4>
+                        <h6 class="text-muted mb-3">{{ exp.organization }} · {{ exp.period }}</h6>
+                        <ul class="mb-0">
+                            {% for resp in exp.responsibilities %}
+                            <li class="mb-2">{{ resp }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
-    </body>
-</html>
+<section class="section" id="skills">
+    <div class="container">
+        <p class="section-subtitle text-center">Technical Expertise</p>
+        <h2 class="section-title text-center mb-5">Skills</h2>
+        
+        <div class="row">
+            {% for skillset in site.data.skills %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">{{ skillset.category }}</h5>
+                        <div class="d-flex flex-wrap">
+                            {% for skill in skillset.skills %}
+                            <span class="badge badge-primary mr-2 mb-2">{{ skill }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section bg-light" id="projects">
+    <div class="container text-center">
+        <p class="section-subtitle">Research & Development</p>
+        <h6 class="section-title mb-6">Projects</h6>
+        <div class="row">
+            {% for project in site.data.projects %}
+            <div class="col-md-4">
+                <a href="{{ project.url }}" class="portfolio-card" target="_blank">
+                    <img class="portfolio-card-img img-responsive rounded" src="/assets/images/{{ project.image }}">
+                    <span class="portfolio-card-overlay">
+                        <span class="portfolio-card-caption">
+                            <h4>{{ project.name }}</h4>
+                            <p class="font-weight-normal mb-2">{{ project.description }}</p>
+                            <p class="mb-1"><small><strong>Status:</strong> {{ project.status }}</small></p>
+                            <p class="mb-0"><small><strong>Tech:</strong> {{ project.tech }}</small></p>
+                        </span>
+                    </span>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section" id="ctfs">
+    <div class="container">
+        <p class="section-subtitle text-center">Competitive Security & Community</p>
+        <h2 class="section-title text-center mb-5">CTFs, Competitions & Talks</h2>
+        
+        <div class="timeline">
+            {% assign sorted_timeline = site.data.timeline | sort: 'date' | reverse %}
+            {% for item in sorted_timeline %}
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">{{ item.date | date: "%B %Y" }}</div>
+                <div class="timeline-content">
+                    {% if item.image %}
+                    <img src="/assets/images/{{ item.image }}" class="img-fluid rounded mb-3" alt="{{ item.title }}">
+                    {% endif %}
+                    <h4>{{ item.title }}</h4>
+                    <h5 class="text-primary mb-2">{{ item.position }}</h5>
+                    <p class="mb-2">{{ item.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,44 @@
+- title: 🥇 Black Hat MEA – Mobile Hacking Lab CTF
+  date: 2025-12-05
+  description: Secured 1st place in a 48-hour individual competition, demonstrating advanced skills in Android and iOS mobile exploitation, reverse engineering, and vulnerability discovery
+  image: null
+
+- title: 🥉 DEFCON 33 – Mobile Only CTF
+  date: 2025-08-11
+  description: Ranked 3rd globally at the DEFCON 33 – Mobile Only CTF, competing against elite security researchers in mobile security challenges
+  image: null
+
+- title: 🥇 H7CTF 2025 Grand Finale
+  date: 2025-11-09
+  description: Won 1st place in the grand finale, solving cybersecurity challenges across multiple domains
+  image: H7 Finals Team.png
+
+- title: CII Summit – Cybersecurity Competition
+  date: 2025-09-11
+  description: Finalist team at Confederation of Indian Industry's national cybersecurity summit, competing in industry-focused security scenarios
+  image: null
+
+- title: 🥉 Vidyut Multifest Hackathon
+  date: 2025-05-25
+  description: Won 3rd prize at Amrita Vishwa Vidyapeetham's multi-domain hackathon, developing innovative security solutions under time constraints
+  image: Vidyut Multifest Hackathon.png
+
+- title: Talk at bi0s Kochi
+  date: 2025-09-20
+  description: Delivered technical talk on mobile malware analysis and reverse engineering methodologies at bi0s Kochi
+  image: bi0s Kochi Talk.png
+
+- title: BSides Dehradun – CTF Core Team
+  date: 2026-01-11
+  description: Core team member designing and authoring CTF challenges for BSides Dehradun
+  image: null
+
+- title: bi0s Pentest Workshop – Coordinator and Speaker
+  date: 2024-09-01
+  description: Taught students how to use JADX, ADB, and Genymotion for APK testing and reverse engineering, and conducted a CTF for live demonstration
+  image: null
+
+- title: BSides Kerala – Ground Operations
+  date: 2025-02-08
+  description: Assisted with event operations at BSides Kerala 2025 and participated in workshops on Android app security and Azure pentesting
+  image: BSides Kerala.png

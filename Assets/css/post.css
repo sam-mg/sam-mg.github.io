@@ -1,0 +1,96 @@
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.post-content h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    scroll-margin-top: 5rem;
+}
+
+.post-content h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    scroll-margin-top: 5rem;
+}
+
+.post-content pre {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    overflow-x: auto;
+    border-left: 3px solid #007bff;
+}
+
+.post-content code {
+    background-color: #f8f9fa;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.2rem;
+    font-size: 0.9em;
+    color: #e83e8c;
+}
+
+.post-content pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 2rem auto;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.post-content blockquote {
+    border-left: 4px solid #007bff;
+    padding-left: 1rem;
+    margin-left: 0;
+    font-style: italic;
+    color: #6c757d;
+    background: #f8f9fa;
+    padding: 1rem 1rem 1rem 1.5rem;
+    border-radius: 0.25rem;
+}
+
+.post-content ul, .post-content ol {
+    margin-bottom: 1.5rem;
+}
+
+.post-content li {
+    margin-bottom: 0.5rem;
+}
+
+.post-content table {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: collapse;
+}
+
+.post-content table th,
+.post-content table td {
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+}
+
+.post-content table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+/* Mermaid diagram styling */
+.mermaid {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
