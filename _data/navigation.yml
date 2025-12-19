@@ -16,5 +16,7 @@
 - name: Timeline
   link: /
   hash: ctfs
+- name: Contact
+  link: /contact/
 - name: Blogs
   link: /blog/

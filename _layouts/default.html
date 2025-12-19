@@ -43,6 +43,36 @@
     <link rel="stylesheet" href="/assets/vendors/themify-icons/css/themify-icons.css">
     <link rel="stylesheet" href="/assets/css/index.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
+    
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sam MG Harish",
+      "url": "{{ site.url }}",
+      "email": "contact@sam-mg.tech",
+      "jobTitle": "Mobile Security Researcher",
+      "description": "{{ site.description }}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kerala",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://twitter.com/sam_mg_",
+        "https://github.com/sam-mg",
+        "https://www.linkedin.com/in/sam-mg-"
+      ],
+      "knowsAbout": [
+        "Mobile Security",
+        "Android Reverse Engineering",
+        "Malware Analysis",
+        "Cybersecurity Research",
+        "CTF Competitions"
+      ]
+    }
+    </script>
   </head>
   <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
     {% include navigation.html %}
