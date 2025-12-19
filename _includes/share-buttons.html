@@ -23,30 +23,12 @@
 </div>
 
 <script>
-function getBaseUrl() {
-    return window.location.origin + window.location.pathname;
-}
-
 function copyToClipboard() {
-    const url = getBaseUrl();
+    const url = window.location.origin + window.location.pathname;
     navigator.clipboard.writeText(url).then(() => {
         alert('Link copied to clipboard!');
     }).catch(err => {
         console.error('Failed to copy:', err);
     });
 }
-
-// Update share button URLs to remove hash
-document.addEventListener('DOMContentLoaded', function() {
-    const baseUrl = getBaseUrl();
-    const encodedUrl = encodeURIComponent(baseUrl);
-    const title = encodeURIComponent(document.title);
-    
-    // Update all share buttons
-    document.querySelectorAll('.share-buttons a[href*="TITLE"], .share-buttons a[href*="URL"]').forEach(btn => {
-        let href = btn.getAttribute('href');
-        href = href.replace(/TITLE/g, title).replace(/URL/g, encodedUrl);
-        btn.setAttribute('href', href);
-    });
-});
 </script>
