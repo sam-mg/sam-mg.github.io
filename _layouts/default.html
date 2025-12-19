@@ -44,32 +44,64 @@
     <link rel="stylesheet" href="/assets/css/index.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
     
-    <!-- Organization Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Sam MG Harish",
-      "url": "{{ site.url }}",
-      "email": "contact@sam-mg.tech",
-      "jobTitle": "Mobile Security Researcher",
-      "description": "{{ site.description }}",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Chennai",
-        "addressCountry": "IN"
-      },
-      "sameAs": [
-        "https://twitter.com/sam_mg_",
-        "https://github.com/sam-mg",
-        "https://www.linkedin.com/in/sam-mg-"
-      ],
-      "knowsAbout": [
-        "Mobile Security",
-        "Android Reverse Engineering",
-        "Malware Analysis",
-        "Cybersecurity Research",
-        "CTF Competitions"
+      "@graph": [
+        {
+          "@type": "Person",
+          "name": "Sam MG Harish",
+          "url": "{{ site.url }}",
+          "email": "contact@sam-mg.tech",
+          "telephone": "Available via email",
+          "jobTitle": "Mobile Security Researcher & Android Reverse Engineer",
+          "description": "{{ site.description }}",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Chennai",
+            "addressRegion": "Tamil Nadu",
+            "addressCountry": "IN"
+          },
+          "sameAs": [
+            "https://twitter.com/sam_mg_",
+            "https://github.com/sam-mg",
+            "https://www.linkedin.com/in/sam-mg-"
+          ],
+          "knowsAbout": [
+            "Mobile Security",
+            "Android Reverse Engineering",
+            "Malware Analysis",
+            "Cybersecurity Research",
+            "CTF Competitions"
+          ],
+          "worksFor": {
+            "@id": "{{ site.url }}/#organization"
+          }
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "{{ site.url }}/#organization",
+          "name": "Sam MG - Mobile Security Research",
+          "description": "Independent mobile security researcher specializing in Android reverse engineering and malware analysis",
+          "founder": {
+            "@type": "Person",
+            "name": "Sam MG Harish"
+          },
+          "email": "contact@sam-mg.tech",
+          "url": "{{ site.url }}",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Chennai",
+            "addressRegion": "Tamil Nadu",
+            "addressCountry": "IN"
+          },
+          "areaServed": "Worldwide",
+          "sameAs": [
+            "https://twitter.com/sam_mg_",
+            "https://github.com/sam-mg",
+            "https://www.linkedin.com/in/sam-mg-"
+          ]
+        }
       ]
     }
     </script>
