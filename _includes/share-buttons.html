@@ -4,8 +4,9 @@
 <div class="share-buttons my-4">
     <h5 class="mb-3">Share this post</h5>
     <div class="d-flex flex-wrap gap-2">
+        {% capture page_url %}{{ site.url }}{{ page.url }}{% endcapture %}
         {% for platform in site.data.share.platforms %}
-        <a href="{{ platform.link | replace: 'TITLE', page.title | url_encode | replace: 'URL', site.url | append: page.url | url_encode }}" 
+        <a href="{{ platform.link | replace: 'TITLE', page.title | url_encode | replace: 'URL', page_url | url_encode }}" 
            target="_blank" 
            class="btn btn-sm btn-outline-primary"
            title="Share on {{ platform.type }}">
